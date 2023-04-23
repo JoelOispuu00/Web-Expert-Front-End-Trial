@@ -1,0 +1,97 @@
+* {
+    font-family: 'Roboto';
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.users {
+    &__wrapper {
+        padding: 2rem 0;
+        margin-top: 2rem;
+        color: #222;
+        background: aliceblue;
+        border-radius: 32px;
+
+        &.search-active {
+            .users__item {
+                display: none;
+
+                &.item-active {
+                    display: grid;
+                }
+            }
+        }
+    }
+    &__header {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+        padding: 0 2rem 0.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 800;
+        font-size: 1rem;
+        line-height: 1.4;
+        text-transform: uppercase;
+        border-bottom: 2px solid #1b3344;
+    }
+    &__item {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+        padding: 0.5rem 2rem;
+    }
+    &__item-edit {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        display: none;
+        padding: 2rem;
+        background: white;
+        transform: translateX(-50%) translateY(-50%);
+        border-radius: 1rem;
+        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.5);
+        &.active {
+            display: block;
+        }
+    }
+    &__item-edit-fields {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem 2rem;
+        input[type~='submit'] {
+            grid-column: 1 / span 2;
+            padding: 1rem 1rem;
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: #1b3344;
+            border: none;
+            border-radius: 0.5rem;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    &__item-edit-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        input[type~='text'] {
+            border: 1px solid slategray;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            padding: 0.4rem 0.6rem;
+        }
+    }
+    &__item-actions {
+        display: flex;
+        gap: 1rem;
+    }
+}
