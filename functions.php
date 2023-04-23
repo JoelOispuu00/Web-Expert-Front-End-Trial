@@ -14,10 +14,6 @@ function delete() {
     return;
 }
 
-function edit() {
-    return;
-}
-
 function saveEdit() {
     $json_data = file_get_contents('data/users.json');
     $users = json_decode($json_data, true);
@@ -47,31 +43,11 @@ function saveEdit() {
     return;
 }
 
-function search() {
-    $json_data = file_get_contents('data/users.json');
-
-    ob_start();
-    $temp_users = json_decode($json_data, true);
-    $users = [];
-    foreach($users as $user) {
-        if($user['username'] == $_GET['search']) { 
-            $users[] = $users[0];
-        }
-    }
-    
-    include('template-parts/ajax/users-content.php');
-    return;
-}
-
 if(isset($_GET['function'])) {
     if($_GET['function'] == 'delete') {
         delete();
-    } elseif($_GET['function'] == 'edit') {
-        edit();
     } elseif($_GET['function'] == 'save-edit') {
         saveEdit();
-    } elseif($_GET['function'] == 'search') {
-        search();
     }
 }
 ?>
